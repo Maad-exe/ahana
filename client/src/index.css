@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --primary: 355 89% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5.9% 10%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 240 5% 64.9%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 355 89% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 240 5% 64.9%;
+    --chart-1: 355 89% 67%;
+    --chart-2: 240 5.9% 10%;
+    --chart-3: 240 4.8% 95.9%;
+    --chart-4: 240 5.9% 10%;
+    --chart-5: 240 5% 64.9%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --primary: 355 89% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 240 4.9% 83.9%;
+  }
+
+  * {
+    @apply border-border box-border;
+  }
+
+  body {
+    @apply font-sans bg-background text-foreground antialiased;
+  }
+}
+
+/* Custom styles for Ahana */
+@layer components {
+  .hero-section {
+    @apply bg-center bg-no-repeat bg-cover h-screen relative;
+  }
+  
+  .hero-overlay {
+    @apply absolute top-0 left-0 w-full h-full bg-black/40;
+  }
+  
+  .nav-link {
+    @apply relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute w-0 h-0.5 -bottom-1 left-1/2 bg-primary transition-all duration-300 ease-in-out -translate-x-1/2;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .dropdown {
+    @apply hidden absolute top-full left-0 bg-white min-w-[200px] shadow-lg z-10 rounded;
+  }
+  
+  .dropdown-container:hover .dropdown {
+    @apply block;
+  }
+  
+  .service-item {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .service-item:hover {
+    @apply -translate-y-2;
+  }
+  
+  .gallery-filter.active {
+    @apply text-primary border-primary;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+/* Font families */
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-sans {
+  font-family: 'Lato', sans-serif;
+}
+
+/* Custom animation classes */
+.slide {
+  @apply opacity-0 scale-90 transition-all duration-500 ease-in-out absolute w-full top-0 left-0;
+}
+
+.slide.active {
+  @apply opacity-100 scale-100 relative;
+}
